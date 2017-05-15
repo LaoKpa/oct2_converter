@@ -47,6 +47,35 @@ ob = OrderBook(ticker,input_file)
 ob.build_features(date,output_file,debug_mode)
 ```
 
+## Additional use: Plotting and time/step -conversions.
+1. Plot ob data using step:
+```python
+ob = OrderBook('SPY','C:/temp/Data/output/SPY_OCT2.h5')
+ylim = [1468000, 1473100]
+xlim = [-30000, 32000]
+ob.plot('2013_01_11',67000,ylim,xlim)
+```
+
+2. Plot ob data using ms time (12:00:00.000):
+```python
+ob = OrderBook('SPY','C:/temp/Data/output/SPY_OCT2.h5')
+ylim = [1468000, 1473100]
+xlim = [-30000, 32000]
+date= '2013_01_11'
+ob.plot(date,ob.time2step(date,43200000)[0],ylim,xlim)
+```
+
+3. Plot ob data using time string:
+```python
+ob = OrderBook('SPY','C:/temp/Data/output/SPY_OCT2.h5')
+ylim = [1468000, 1473100]
+xlim = [-30000, 32000]
+date= '2013_01_11'
+strtime = '12:00:00.000'
+step = ob.str2step(date,strtime)[0]
+ob.plot(date,step,ylim,xlim)
+```
+
 # Use with CSC Taito array jobs
 Files with names starting: 'obdt_csc...' contain a usage example of using the converter with CSC taito array jobs (https://research.csc.fi/taito-array-jobs) to convert a large batch of input files concurrently utilizing the clusters resources. 
 
