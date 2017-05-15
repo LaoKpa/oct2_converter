@@ -5,7 +5,7 @@ OCT2 Converter is a Python3.6 limit order book data tool, converter and feature 
 See Trading Physics input file specs here: http://www.tradingphysics.org/Resources/Specifications/HistoricalItch.aspx#CSV
 
 ## OCT2-format
-See output data description in: oct2.pptx
+Output is hdf5-format (https://support.hdfgroup.org/HDF5/). A detailed description of the cointained tables can be found in oct2_tables.pptx.
 
 # Installation
 None required. Just run from either converter.ipynb or obdt.py.
@@ -47,9 +47,6 @@ ob = OrderBook(ticker,input_file)
 ob.build_features(date,output_file,debug_mode)
 ```
 
-# Plotting & Time Functions
-...
-
 # Use with CSC Taito array jobs
-See example files "obdt_csc*".
+Files with names starting: 'obdt_csc...' contain a usage example of using the converter with CSC taito array jobs (https://research.csc.fi/taito-array-jobs) to convert a large batch of input files concurrently utilizing the clusters resources. 
 
